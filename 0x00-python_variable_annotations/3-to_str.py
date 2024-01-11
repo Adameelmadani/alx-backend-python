@@ -5,7 +5,7 @@ This is our module
 
 
 def to_str(n: float) -> str:
-  """
-  This is our string function annotated
-  """
-  return str(n)
+    """
+    This is our string function annotated
+    """
+    return str(n)
