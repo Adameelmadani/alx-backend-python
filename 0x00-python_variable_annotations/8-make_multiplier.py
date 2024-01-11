@@ -8,11 +8,11 @@ This is our typing module
 """
 
     
-def make_multiplier(float: multiplier) -> Callable[[float], float]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     This is our multiplier func
     """
-    def multiply(float: a) -> float:
+    def multiply(a: float) -> float:
         """
         This is multiply function callable one
         """
