@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-"""
-This is our module
-"""
 import math
 """
-This is math module
+This is our module and math module
 """
 
 
 def floor(n: float) -> int:
-  return math.floor(n)
+    return math.floor(n)
