@@ -7,7 +7,7 @@ from typing import Callable
 This is our typing module
 """
 
-    
+
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     This is our multiplier func
