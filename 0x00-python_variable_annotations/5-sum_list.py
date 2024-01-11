@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-from typing import List
 """
 This is our module
+"""
+from typing import List
+"""
+This is our typing module
 """
 
 
