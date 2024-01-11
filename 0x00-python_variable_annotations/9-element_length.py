@@ -9,5 +9,8 @@ This is typing module
 
 
 def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
+    """
+    elem length func
+    """
     i: Sequence
     return [(i, len(i)) for i in lst]
