@@ -9,6 +9,9 @@ This is typing module
 
 
 def sum_mixed_list(mxd_lst: List[int | float]) -> float:
+    """
+    This is our sum mixed func
+    """
     sum: float = 0
     i: int
     for i in range(0, len(mxd_lst)):
