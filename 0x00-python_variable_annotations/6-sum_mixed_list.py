@@ -2,13 +2,13 @@
 """
 This is our module
 """
-from typing import List
+from typing import Union
 """
 This is typing module
 """
 
 
-def sum_mixed_list(mxd_lst: List[int | float]) -> float:
+def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
     """
     This is our sum mixed func
     """
