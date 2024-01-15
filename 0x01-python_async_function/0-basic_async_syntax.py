@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+"""
+This is our module
+"""
 import asyncio
 import random
 """
-This is our python module
-And asyncio and random modules
+This is asyncio, random module
 """
 
 
