@@ -51,7 +51,7 @@ class TestGetJson(unittest.TestCase):
         """Tests utils.get_json function"""
         get_mock.return_value.json.return_value = self.input["test_payload"]
         self.assertEqual(get_json(self.input["test_url"]), self.expected)
-        get_mock.assert_called_once()
+        get_mock.assert_called_once_with(self.input["test_url"])
 
 
 if __name__ == "__main__":
