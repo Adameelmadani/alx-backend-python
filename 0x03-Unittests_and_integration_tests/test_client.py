@@ -49,6 +49,18 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(test.public_repos(None), ["El"])
             get_mock1.assert_called_once_with("url")
 
+    @parameterized.expand([
+        ({"repo": {"license": {"key": "my_license"}},
+            "license_key": "my_license"}, "True"),
+        ({"repo": {"license": {"key": "other_license"}},
+            "license_key": "my_license"}, "False")
+        ])
+    def test_has_license(self, input, expected):
+        """Test has_license function"""
+        test = GithubOrgClient("url")
+        self.assertEqual(str(test.has_license(input["repo"],
+                         input["license_key"])), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
