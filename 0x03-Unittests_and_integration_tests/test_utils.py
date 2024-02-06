@@ -2,7 +2,7 @@
 """
 This is our python module
 """
-from parameterized import parameterized, parameterized_class
+from parameterized import parameterized
 import unittest
 from unittest.mock import patch, Mock
 access_nested_map = __import__("utils").access_nested_map
@@ -36,23 +36,21 @@ class TestAccessNestedMap(unittest.TestCase):
         self.assertEqual(str(e.exception), input["key"])
 
 
-@parameterized_class(("input", "expected"), [
-    ({"test_url": "http://example.com", "test_payload": {"payload": True}},
-        {"payload": True}),
-    ({"test_url": "http://holberton.io", "test_payload": {"payload": False}},
-        {"payload": False})
-    ])
 class TestGetJson(unittest.TestCase):
     """
     This class tests getjson function
     """
-    def test_get_json(self):
+    @parameterized.expand([
+        ("http://example.com", {"payload": True}),
+        ("http://holberton.io", {"payload": False})
+        ])
+    def test_get_json(self, test_url, test_payload):
         """Tests utils.get_json function"""
         with patch("utils.requests.get") as g_mock:
-            g_mock.return_value.json.return_value = self.input["test_payload"]
-            result = get_json(self.input["test_url"])
-            g_mock.assert_called_once_with(self.input["test_url"])
-            self.assertEqual(result, self.expected)
+            g_mock.return_value.json.return_value = test_payload
+            result = get_json(test_url)
+            g_mock.assert_called_once_with(test_url)
+            self.assertEqual(result, test_payload)
 
 
 if __name__ == "__main__":
