@@ -7,6 +7,7 @@ import unittest
 from unittest.mock import patch, Mock
 access_nested_map = __import__("utils").access_nested_map
 get_json = __import__("utils").get_json
+memoize = __import__("utils").memoize
 """
 These are testing modules
 """
@@ -51,6 +52,38 @@ class TestGetJson(unittest.TestCase):
             result = get_json(test_url)
             g_mock.assert_called_once_with(test_url)
             self.assertEqual(result, test_payload)
+
+
+class TestMemoize(unittest.TestCase):
+    """
+    This class tests memoize decorator
+    """
+    def test_memoize(self):
+        """
+        test_memoize function
+        """
+        class TestClass:
+            """
+            Our test class
+            """
+
+            def a_method(self):
+                """
+                a_method of test class
+                """
+                return 42
+
+            @memoize
+            def a_property(self):
+                """
+                a_property of test class
+                """
+                return self.a_method()
+        test = TestClass()
+        with patch.object(test, "a_method", return_value=42) as g_mock:
+            self.assertEqual(test.a_property, 42)
+            self.assertEqual(test.a_property, 42)
+            g_mock.assert_called_once()
 
 
 if __name__ == "__main__":
