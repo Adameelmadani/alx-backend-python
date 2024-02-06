@@ -3,7 +3,7 @@
 This is our module
 """
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, PropertyMock
 from parameterized import parameterized
 GithubOrgClient = __import__("client").GithubOrgClient
 """
